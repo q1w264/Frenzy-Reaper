@@ -1,0 +1,35 @@
+.unity-progress-bar__background {
+    background-color: transparent;
+    border-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.unity-progress-bar__progress {
+    background-color: transparent;
+    border-width: 0;
+    margin: 0;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/HP.png?fileID=-902086654454736923&guid=60857bdc439a74d53876730e2f0aa568&type=3#HP_0");
+    height: 100%;
+}
+
+.unity-progress-bar__title {
+    display: none;
+}
+
+.unity-progress-bar__container {
+    min-height: auto;
+    max-height: none;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/HP-Bar.png?fileID=-8016294629258905714&guid=9fbf9826cddcb41fe92c7486fe42b7f8&type=3#HP-Bar_0");
+    aspect-ratio: 4.583333;
+    overflow: hidden;
+    height: 15%;
+    padding-top: 21px;
+    padding-right: 10px;
+    padding-bottom: 21px;
+    padding-left: 57px;
+}

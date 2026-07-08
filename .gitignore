@@ -109,6 +109,9 @@ InitTestScene*.unity*
 # MacOS
 .DS_Store
 
+# Unity UI Toolkit schema cache
+/UIElementsSchema/
+
 # Local-only proprietary packages and settings
 /Packages/com.arongranberg.astar/
 /ProjectSettings/com.arongranberg.astar/
