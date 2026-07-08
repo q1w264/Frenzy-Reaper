@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 41407075472462314}
   - component: {fileID: 912067468693465380}
   - component: {fileID: 5944334580898773354}
+  - component: {fileID: 2000348961392117692}
   m_Layer: 0
   m_Name: Small Zombie
   m_TagString: Untagged
@@ -109,7 +110,7 @@ Animator:
   m_GameObject: {fileID: 918734076810382303}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 17a8ba837b1534084a8bc4f1f0acadc2, type: 2}
+  m_Controller: {fileID: 9100000, guid: cb8fbd02c45724349a5660c65c85ab35, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -196,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
   version: 1073741824
   radius: 0.5
-  height: 2
+  height: 1
   simulateMovement: 1
   maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
@@ -356,3 +357,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.Enemy.EnemyAI
   player: {fileID: 0}
+--- !u!114 &2000348961392117692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918734076810382303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01e8edabc134c28aa93da534788b53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.Enemy.AnimationHandler
