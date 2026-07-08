@@ -54,6 +54,9 @@ Each run is a harsh expedition: stay alive, build your loadout, and bring resour
 > Note: `Assets/Art Resources` and related art files are not included in this repository for compliance reasons.  
 > You must provide your own legally licensed replacement assets for full visual testing.
 
+> Note: this project also uses a proprietary paid module (`A* Pathfinding Project`) that is not bundled with the public repository.  
+> If you need that functionality, install it locally under your own valid license.
+
 ## License
 
 This repository follows a split licensing model:

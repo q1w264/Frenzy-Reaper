@@ -108,3 +108,7 @@ InitTestScene*.unity*
 
 # MacOS
 .DS_Store
+
+# Local-only proprietary packages and settings
+/Packages/com.arongranberg.astar/
+/ProjectSettings/com.arongranberg.astar/
