@@ -79,3 +79,14 @@ com.unity.modules.xr @ 1.0.0
 
 Package versions above are a snapshot of the current manifest in this repository.
 
+## 4. Proprietary Module Notice
+
+### A* Pathfinding Project
+
+- Package: `com.arongranberg.astar`
+- Vendor: Aron Granberg
+- Public site: <https://www.arongranberg.com/astar/>
+- Status: proprietary paid module
+- Distribution: not bundled in this public repository
+
+If you need this module, obtain it separately under your own valid license and install it locally.
