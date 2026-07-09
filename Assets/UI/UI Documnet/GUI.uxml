@@ -1,11 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="hp-bar" src="project://database/Assets/UI/UI%20Documnet/hp-bar.uxml?fileID=9197481963319205126&amp;guid=089744aafcbcf49ff824b9e5815924dd&amp;type=3#hp-bar"/>
     <Style src="project://database/Assets/UI/Style%20Sheet/hp-bar.uss?fileID=7433441132597879392&amp;guid=24e403f347b1a42889e606dbc49d3d43&amp;type=3#hp-bar"/>
-    <ui:VisualElement name="hp-bar__container" class="hp-container">
-        <ui:VisualElement name="hp-bar__slot" class="hp-slot">
-            <ui:VisualElement name="hp-bar__mask" class="hp-mask" style="width: 100%;">
-                <ui:VisualElement name="hp-bar__fill" class="hp-fill"/>
-            </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement name="hp-bar__heart" class="hp-heart"/>
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row; width: 550px;">
+        <ui:Instance template="hp-bar" name="hp-bar"/>
+        <ui:VisualElement style="flex-grow: 1;"/>
     </ui:VisualElement>
 </ui:UXML>

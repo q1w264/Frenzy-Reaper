@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8946374549154640773}
   - component: {fileID: 4209304228337889110}
   - component: {fileID: 1299210195752372244}
+  - component: {fileID: 912067468693465380}
   - component: {fileID: 8610439861884499785}
   - component: {fileID: 41407075472462314}
-  - component: {fileID: 912067468693465380}
   - component: {fileID: 5944334580898773354}
   - component: {fileID: 2000348961392117692}
   m_Layer: 0
@@ -257,6 +257,29 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
+--- !u!114 &912067468693465380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918734076810382303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.RaycastModifier
+  version: 1073741824
+  useRaycasting: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  thickRaycast: 0
+  thickRaycastRadius: 0
+  use2DPhysics: 1
+  raycastOffset: {x: 0, y: 0, z: 0}
+  useGraphRaycasting: 1
+  quality: 1
 --- !u!50 &8610439861884499785
 Rigidbody2D:
   serializedVersion: 5
@@ -321,29 +344,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.011744499, y: 0}
   m_Size: {x: 0.5893543, y: 1}
   m_Direction: 0
---- !u!114 &912067468693465380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918734076810382303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b090bec917bbe4c3bbc612ef13f7c4a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.RaycastModifier
-  version: 1073741824
-  useRaycasting: 1
-  mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  thickRaycast: 0
-  thickRaycastRadius: 0
-  use2DPhysics: 1
-  raycastOffset: {x: 0, y: 0, z: 0}
-  useGraphRaycasting: 1
-  quality: 1
 --- !u!114 &5944334580898773354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.Enemy.EnemyAI
   player: {fileID: 0}
+  detectionRange: 5
 --- !u!114 &2000348961392117692
 MonoBehaviour:
   m_ObjectHideFlags: 0

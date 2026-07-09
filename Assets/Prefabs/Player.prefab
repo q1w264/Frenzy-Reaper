@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8381511633087378626}
   - component: {fileID: 8768423311343998606}
   - component: {fileID: 4590219146250551996}
+  - component: {fileID: 366360410156851091}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -216,3 +217,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79948c8d73a6b4d9688524cd1a4733fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.InputEvent.AnimationHandler
+--- !u!114 &366360410156851091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780696553491039293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731c360f4e36141a783321b9296543f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.Health.Health
+  maxHealth: 100
+  currentHealth: 100

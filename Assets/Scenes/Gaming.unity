@@ -1171,6 +1171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 452591168}
   - component: {fileID: 452591167}
+  - component: {fileID: 452591169}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -1216,6 +1217,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &452591169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452591166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c248fc3daecd4fa5acdc4ce2edfda8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.GUIController
+  playerHealth: {fileID: 1763854512}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -59076,6 +59090,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79948c8d73a6b4d9688524cd1a4733fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.InputEvent.AnimationHandler
+--- !u!114 &1763854512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 366360410156851091, guid: 152791368047d44dd989bea35f8c6c95, type: 3}
+  m_PrefabInstance: {fileID: 3278466066476423222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731c360f4e36141a783321b9296543f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.Health.Health
 --- !u!1 &1802504526
 GameObject:
   m_ObjectHideFlags: 0
