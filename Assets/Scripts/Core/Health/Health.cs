@@ -6,8 +6,8 @@ namespace Core.Health
 {
     public class Health : MonoBehaviour
     {
-        [CreateProperty][SerializeField] private float maxHealth = 100;
-        [CreateProperty][SerializeField] private float currentHealth;
+        [SerializeField] private float maxHealth = 100;
+        [SerializeField] private float currentHealth;
         
         [CreateProperty]
         public StyleLength HpMaskWidth =>

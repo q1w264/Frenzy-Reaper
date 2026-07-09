@@ -1,5 +1,3 @@
-
-
 .hp-container {
     background-image: url("project://database/Assets/Art%20Resources/UI/HP/HP-Bar.png?fileID=-8016294629258905714&guid=9fbf9826cddcb41fe92c7486fe42b7f8&type=3#HP-Bar_0");
     height: 120px;
@@ -39,4 +37,37 @@
     height: 100%;
     right: 420px;
     background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Full.png?fileID=8669251620210040706&guid=6254ac1877eb64df6b6f35b0bb459dde&type=3#Heart_Full_0");
+}
+
+.hp-heart-full {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 120px;
+    width: auto;
+    height: 100%;
+    right: 420px;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Full.png?fileID=8669251620210040706&guid=6254ac1877eb64df6b6f35b0bb459dde&type=3#Heart_Full_0");
+}
+
+.hp-heart-half {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 120px;
+    width: auto;
+    height: 100%;
+    right: 420px;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Half.png?fileID=4182410544016666133&guid=d66fe5fdb80d5414aa033001798cdb05&type=3#Heart_Half_0");
+}
+
+.hp-heart-empty {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 120px;
+    width: auto;
+    height: 100%;
+    right: 420px;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Empty.png?fileID=-1031049354629045415&guid=ab9c9a05d842840ce9d7be5507d86220&type=3#Heart_Empty_0");
 }
