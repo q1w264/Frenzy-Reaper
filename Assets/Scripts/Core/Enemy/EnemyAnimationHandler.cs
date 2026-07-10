@@ -10,6 +10,7 @@ namespace Core.Enemy
         private static readonly int MoveX = Animator.StringToHash("MoveX");
         private static readonly int MoveY = Animator.StringToHash("MoveY");
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Attack = Animator.StringToHash("Attack");
         private Animator _animator;
         private AIPath _aiPath;
         private Vector2 _aimDirection = Vector2.down;
@@ -21,6 +22,11 @@ namespace Core.Enemy
         {
             _animator = GetComponent<Animator>();
             _aiPath = GetComponent<AIPath>();
+        }
+
+        public void OnAttack()
+        {
+            _animator.SetTrigger(Attack);
         }
 
         private void Update()

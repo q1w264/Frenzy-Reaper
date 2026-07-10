@@ -205,7 +205,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  endReachedDistance: 0.2
+  endReachedDistance: 1
   whenCloseToDestination: 0
   rvoDensityBehavior:
     enabled: 1
@@ -359,8 +359,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.Enemy.EnemyAI
   player: {fileID: 0}
   detectionRange: 5
-  attackRange: 1.5
+  attackRange: 1
   decisionInterval: 0.15
+  attackInterval: 2
 --- !u!114 &2000348961392117692
 MonoBehaviour:
   m_ObjectHideFlags: 0

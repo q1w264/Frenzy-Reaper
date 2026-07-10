@@ -1,3 +1,4 @@
+using System;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,7 +13,9 @@ namespace Core.Health
         [CreateProperty]
         public StyleLength HpMaskWidth =>
             Length.Percent(currentHealth <= 0 ? 0 : (currentHealth / maxHealth) * 100f);
-        
+
+        public Action OnDamaged { get; set; }
+
         private void Awake()
         {
             currentHealth = maxHealth;
@@ -25,7 +28,7 @@ namespace Core.Health
             {
                 currentHealth = 0;
             }
-            // You can add additional logic here, such as triggering events or animations when health changes.
+            OnDamaged?.Invoke();
         }
 
         public void Heal(int amount)
@@ -41,6 +44,11 @@ namespace Core.Health
         public bool IsDead()
         {
             return currentHealth <= 0;
+        }
+
+        private void OnDestroy()
+        {
+            OnDamaged = null;
         }
     }
 }

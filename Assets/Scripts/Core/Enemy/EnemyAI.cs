@@ -3,19 +3,28 @@ using UnityEngine;
 
 namespace Core.Enemy
 {
+    [RequireComponent(typeof(AnimationHandler))]
+    [RequireComponent(typeof(AIPath))]
     public class EnemyAI : MonoBehaviour
     {
         private AIPath _aiPath;
         public Transform player;
+        private AnimationHandler _animationHandler;
+        
         public float detectionRange = 5f; // 检测范围
         public float attackRange = 1.5f;
         
         [SerializeField] private float decisionInterval = 0.15f; // 逻辑缓冲时间
+        [SerializeField] private float attackInterval  = 2f; // 攻击间隔
         private float _nextDecisionTime;
-        
+        private float _nextAttackTime;
+        private Health.Health _health;
+
         void Start()
         {
+            _health = player.GetComponent<Health.Health>();
             _aiPath = GetComponent<AIPath>();
+            _animationHandler = GetComponent<AnimationHandler>();
         }
 
         void Update()
@@ -36,9 +45,11 @@ namespace Core.Enemy
                     // 只要传入目标坐标，多线程寻路、避墙、RVO互相避让全自动完成
                     _aiPath.destination = player.position; 
                 }
-                else if (currentDistance <= attackRange)
+                else if (currentDistance <= attackRange && Time.time >= _nextAttackTime)
                 {
-                    //TODO Attack logic
+                    _animationHandler.OnAttack();
+                    _health.TakeDamage(10); // 假设每次攻击造成10点伤害
+                    _nextAttackTime = Time.time + attackInterval;
                     _aiPath.isStopped = true;
                 }
                 else
@@ -48,14 +59,16 @@ namespace Core.Enemy
             }
         }
         
-        // void OnDrawGizmos()
-        // {
-        //     if (Camera.current != null && Camera.current.name == "SceneCamera" && !isShowGizmos)
-        //     {
-        //         return; // 如果当前是 Scene 窗口，直接跳过，什么都不画！
-        //     }
-        //     Gizmos.color = Color.red;
-        //     Gizmos.DrawWireSphere(transform.position, detectionRange);
-        // }
+        void OnDrawGizmos()
+        {
+            if (Camera.current != null && Camera.current.name == "SceneCamera")
+            {
+                return; // 如果当前是 Scene 窗口，直接跳过，什么都不画！
+            }
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, detectionRange);
+        }
     }
 }
