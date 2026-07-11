@@ -15,10 +15,14 @@ namespace UI
             if (playerHealth == null)
             {
                 Debug.LogError("Player Health is not assigned in the GUIController.");
+                return;
             }
             _uiDocument = GetComponent<UIDocument>();
-            _root = _uiDocument.rootVisualElement;
-            _root.dataSource =  playerHealth;
+            _root = _uiDocument?.rootVisualElement;
+            if (_root != null)
+            {
+                _root.dataSource =  playerHealth;
+            }
         }
         
         private void OnDisable()

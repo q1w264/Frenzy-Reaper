@@ -9,11 +9,12 @@ namespace Core.Health
     {
         [SerializeField] private float maxHealth = 100;
         [SerializeField] private float currentHealth;
-        
+
         [CreateProperty]
         public StyleLength HpMaskWidth =>
             Length.Percent(maxHealth <= 0f ? 0f : Mathf.Clamp((currentHealth / maxHealth) * 100f, 0f, 100f));
-        public Action OnDamaged { get; set; }
+
+        public event Action OnDamaged;
 
         private void Awake()
         {
@@ -27,6 +28,7 @@ namespace Core.Health
             {
                 currentHealth = 0;
             }
+
             OnDamaged?.Invoke();
         }
 
