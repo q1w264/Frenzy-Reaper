@@ -20,14 +20,19 @@ namespace Core.Enemy
         private float _nextAttackTime;
         private Health.Health _health;
 
-        void Start()
+        private void Start()
         {
+            if (player == null)
+            {
+                Debug.LogError("Player not assigned in EnemyAI.");
+                return;
+            }
             _health = player.GetComponent<Health.Health>();
             _aiPath = GetComponent<AIPath>();
             _animationHandler = GetComponent<AnimationHandler>();
         }
 
-        void Update()
+        private void Update()
         {
             if (player != null)
             {
@@ -48,7 +53,10 @@ namespace Core.Enemy
                 else if (currentDistance <= attackRange && Time.time >= _nextAttackTime)
                 {
                     _animationHandler.OnAttack();
-                    _health.TakeDamage(10); // 假设每次攻击造成10点伤害
+                    if (_health != null)
+                    {
+                        _health.TakeDamage(10); // 假设每次攻击造成10点伤害
+                    }
                     _nextAttackTime = Time.time + attackInterval;
                     _aiPath.isStopped = true;
                 }
@@ -59,7 +67,7 @@ namespace Core.Enemy
             }
         }
         
-        void OnDrawGizmos()
+        private void OnDrawGizmos()
         {
             if (Camera.current != null && Camera.current.name == "SceneCamera")
             {

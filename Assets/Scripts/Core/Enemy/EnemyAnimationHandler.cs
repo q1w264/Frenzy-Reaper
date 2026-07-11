@@ -38,7 +38,7 @@ namespace Core.Enemy
             _nextDecisionTime = Time.time + animationInterval;
 
             var direction = _aiPath.desiredVelocity;
-            if (direction.x != 0 || direction.y != 0 && Mathf.Abs(direction.x - _aimDirection.x) > 0.4f &&
+            if ((direction.x != 0 || direction.y != 0 )&& Mathf.Abs(direction.x - _aimDirection.x) > 0.4f &&
                 Mathf.Abs(direction.y - _aimDirection.y) > 0.4f)
                 _aimDirection = direction.normalized;
             var currentSpeed = direction.magnitude;
