@@ -12,8 +12,7 @@ namespace Core.Health
         
         [CreateProperty]
         public StyleLength HpMaskWidth =>
-            Length.Percent(currentHealth <= 0 ? 0 : (currentHealth / maxHealth) * 100f);
-
+            Length.Percent(maxHealth <= 0f ? 0f : Mathf.Clamp((currentHealth / maxHealth) * 100f, 0f, 100f));
         public Action OnDamaged { get; set; }
 
         private void Awake()
