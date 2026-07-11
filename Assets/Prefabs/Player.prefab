@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 8768423311343998606}
   - component: {fileID: 4590219146250551996}
   - component: {fileID: 366360410156851091}
+  - component: {fileID: 3925004598695123345}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,6 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79948c8d73a6b4d9688524cd1a4733fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.InputEvent.AnimationHandler
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
 --- !u!114 &366360410156851091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,3 +234,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.Health.Health
   maxHealth: 100
   currentHealth: 100
+--- !u!114 &3925004598695123345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780696553491039293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08253822ccfc4da5abd24e7a716c1e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.InputEvent.Attack
+  searchRadius: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64

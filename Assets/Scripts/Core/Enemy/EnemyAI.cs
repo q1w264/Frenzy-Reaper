@@ -11,14 +11,17 @@ namespace Core.Enemy
         public Transform player;
         private AnimationHandler _animationHandler;
         
+        [Header("AI Settings")]
         public float detectionRange = 5f; // 检测范围
         public float attackRange = 1.5f;
-        
         [SerializeField] private float decisionInterval = 0.15f; // 逻辑缓冲时间
         [SerializeField] private float attackInterval  = 2f; // 攻击间隔
         private float _nextDecisionTime;
         private float _nextAttackTime;
         private Health.Health _health;
+
+        [Header("Gizmos Settings")]
+        public bool enableGizmos;
 
         private void Start()
         {
@@ -69,6 +72,7 @@ namespace Core.Enemy
         
         private void OnDrawGizmos()
         {
+            if (!enableGizmos) return;
             if (Camera.current != null && Camera.current.name == "SceneCamera")
             {
                 return; // 如果当前是 Scene 窗口，直接跳过，什么都不画！
