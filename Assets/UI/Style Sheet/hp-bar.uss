@@ -1,0 +1,73 @@
+.hp-container {
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/HP-Bar.png?fileID=-8016294629258905714&guid=9fbf9826cddcb41fe92c7486fe42b7f8&type=3#HP-Bar_0");
+    height: 120px;
+    width: 550px;
+    overflow: hidden;
+}
+
+.hp-slot {
+    position: absolute;
+    left: 110px;
+    bottom: 40px;
+    top: 40px;
+    right: 20px;
+    overflow: hidden;
+}
+
+.hp-mask {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hp-fill {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/HP.png?fileID=-902086654454736923&guid=60857bdc439a74d53876730e2f0aa568&type=3#HP_0");
+    flex-shrink: 0;
+    width: 420px;
+}
+
+.hp-heart {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 120px;
+    width: auto;
+    height: 100%;
+    right: 420px;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Full.png?fileID=8669251620210040706&guid=6254ac1877eb64df6b6f35b0bb459dde&type=3#Heart_Full_0");
+}
+
+.hp-heart-full {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 120px;
+    width: auto;
+    height: 100%;
+    right: 420px;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Full.png?fileID=8669251620210040706&guid=6254ac1877eb64df6b6f35b0bb459dde&type=3#Heart_Full_0");
+}
+
+.hp-heart-half {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 120px;
+    width: auto;
+    height: 100%;
+    right: 420px;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Half.png?fileID=4182410544016666133&guid=d66fe5fdb80d5414aa033001798cdb05&type=3#Heart_Half_0");
+}
+
+.hp-heart-empty {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 120px;
+    width: auto;
+    height: 100%;
+    right: 420px;
+    background-image: url("project://database/Assets/Art%20Resources/UI/HP/Heart_Empty.png?fileID=-1031049354629045415&guid=ab9c9a05d842840ce9d7be5507d86220&type=3#Heart_Empty_0");
+}

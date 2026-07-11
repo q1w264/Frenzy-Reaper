@@ -109,6 +109,13 @@ InitTestScene*.unity*
 # MacOS
 .DS_Store
 
+# Unity UI Toolkit schema cache
+/UIElementsSchema/
+
 # Local-only proprietary packages and settings
 /Packages/com.arongranberg.astar/
 /ProjectSettings/com.arongranberg.astar/
+
+# Unity Burst compiler generated output
+Data/Plugins/lib_burst_generated.cpp
+Data/Plugins/lib_burst_generated.cpp.meta
