@@ -69,7 +69,10 @@ namespace Core.InputEvent
 
         private void OnDestroy()
         {
-            _health.OnDamaged = null;
+            if (_health != null)
+            {
+                _health.OnDamaged -= OnDamaged;
+            }
         }
     }
 }
