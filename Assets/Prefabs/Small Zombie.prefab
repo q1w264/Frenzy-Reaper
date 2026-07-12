@@ -87,7 +87,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -607129313
+  m_SortingLayerID: -1241765351
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -362,6 +362,7 @@ MonoBehaviour:
   attackRange: 1
   decisionInterval: 0.15
   attackInterval: 2
+  enableGizmos: 0
 --- !u!114 &2000348961392117692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.Enemy.AnimationHandler
   animationInterval: 0.2
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
 --- !u!114 &5872044040744292520
 MonoBehaviour:
   m_ObjectHideFlags: 0
