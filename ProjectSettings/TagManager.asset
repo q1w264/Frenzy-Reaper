@@ -46,6 +46,9 @@ TagManager:
   - name: BackWall
     uniqueID: 3695497665
     locked: 0
+  - name: Anemy
+    uniqueID: 3053201945
+    locked: 0
   - name: Player
     uniqueID: 3687837983
     locked: 0

@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 namespace Core.InputEvent
 {
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Health.Health))]
     public class Attack : MonoBehaviour
     {
         private static readonly int MoveX = Animator.StringToHash("MoveX");
@@ -17,9 +19,12 @@ namespace Core.InputEvent
 
         private ContactFilter2D _contactFilter;
         
+        private Health.Health _health;
+        
         private Animator _animator;
         private void Awake()
         {
+            _health = GetComponent<Health.Health>();
             _contactFilter = new ContactFilter2D
             {
                 useLayerMask = true,
@@ -35,6 +40,7 @@ namespace Core.InputEvent
 
         public void OnAttackEvent(InputAction.CallbackContext ctx)
         {
+            if (_health.IsDead()) return;
             if (ctx.performed)
             {
                 if (_nearestEnemy != null)

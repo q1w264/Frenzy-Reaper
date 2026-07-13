@@ -71,9 +71,10 @@ namespace Core.Enemy
             }
             else if (currentDistance <= attackRange && Time.time >= _nextAttackTime)
             {
-                _animationHandler.OnAttack();
-                if (_playerHealth != null)
+                
+                if (_playerHealth != null && !_playerHealth.IsDead())
                 {
+                    _animationHandler.OnAttack();
                     _playerHealth.TakeDamage(10); // 假设每次攻击造成10点伤害
                 }
                 _nextAttackTime = Time.time + attackInterval;

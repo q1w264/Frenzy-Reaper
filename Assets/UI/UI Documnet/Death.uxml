@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:Label text="YOU DIED" name="titile" style="-unity-text-align: middle-center; white-space: pre; justify-content: center; align-content: center; align-items: center; font-size: 232px; -unity-font-style: bold; color: rgb(220, 20, 60); margin-bottom: 88px; background-color: rgba(26, 26, 26, 0.788); border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; margin-top: 88px; margin-right: 88px; margin-left: 88px; padding-top: 43px; padding-right: 43px; padding-bottom: 43px; padding-left: 43px;"/>
+        <ui:Button text="Retry" name="button-retry" style="width: 40%; justify-content: center; align-items: center; align-self: center; height: 15%; font-size: 87px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;"/>
+    </ui:VisualElement>
+</ui:UXML>
