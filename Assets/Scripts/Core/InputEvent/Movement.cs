@@ -21,7 +21,11 @@ namespace Core.InputEvent
 
         public void OnMoveEvent(InputAction.CallbackContext ctx)
         {
-            if(_health.IsDead()) return;
+            if(_health.IsDead())
+            {
+                _input = Vector2.zero;
+                return;
+            }
             _input = ctx.ReadValue<Vector2>();
         }
 

@@ -35,7 +35,6 @@ namespace Core.Enemy
             if (player == null)
             {
                 Debug.LogError("Player not assigned in EnemyAI.");
-                return;
             }
             _playerHealth = player.GetComponent<Health.Health>();
             _aiPath = GetComponent<AIPath>();

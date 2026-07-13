@@ -46,12 +46,12 @@ namespace Core.InputEvent
                 if (_nearestEnemy != null)
                 {
                     Vector2 fireDirection = (_nearestEnemy.transform.position - transform.position).normalized;
-                    bulletPool.Shoot(transform.position, fireDirection);
+                    bulletPool?.Shoot(transform.position, fireDirection);
                 }
                 else
                 {
                     Vector2 fireDirection = new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
-                    bulletPool.Shoot(transform.position, fireDirection);
+                    bulletPool?.Shoot(transform.position, fireDirection);
                 }
             }
         }

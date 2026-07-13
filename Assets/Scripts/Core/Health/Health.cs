@@ -25,6 +25,7 @@ namespace Core.Health
 
         public void TakeDamage(int damage)
         {
+            if(currentHealth <= 0) return;
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
