@@ -16,10 +16,11 @@ namespace Core.InputEvent
         private static readonly int MoveX = Animator.StringToHash("MoveX");
         private static readonly int MoveY = Animator.StringToHash("MoveY");
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Death = Animator.StringToHash("Death");
         private Animator _animator;
         private SpriteRenderer _renderer;
         private Health.Health _health;
-        private Vector2 _aimDirection = Vector2.down;
+        private Vector2 _aimDirection = Vector2.zero;
         private Color _originalColor;
 
         private void Start()
@@ -29,6 +30,12 @@ namespace Core.InputEvent
             _renderer = GetComponent<SpriteRenderer>();
             _health.OnDamaged += OnDamaged;
             _originalColor = _renderer.color;
+            _health.OnDeath += OnDeath;
+        }
+
+        private void OnDeath()
+        {
+            _animator.SetTrigger(Death);
         }
 
         private void OnDamaged()
@@ -44,6 +51,7 @@ namespace Core.InputEvent
 
         private void Update()
         {
+            if(_health.IsDead()) return;
             _animator.SetFloat(Speed, _aimDirection.magnitude);
             if (_aimDirection.magnitude > 0)
             {

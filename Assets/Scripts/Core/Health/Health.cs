@@ -15,6 +15,8 @@ namespace Core.Health
             Length.Percent(maxHealth <= 0f ? 0f : Mathf.Clamp((currentHealth / maxHealth) * 100f, 0f, 100f));
 
         public event Action OnDamaged;
+        
+        public event Action OnDeath;
 
         private void Awake()
         {
@@ -23,13 +25,20 @@ namespace Core.Health
 
         public void TakeDamage(int damage)
         {
+            if(currentHealth <= 0) return;
             currentHealth -= damage;
-            if (currentHealth < 0)
+            if (currentHealth <= 0)
             {
                 currentHealth = 0;
+                OnDeath?.Invoke();
             }
 
             OnDamaged?.Invoke();
+        }
+
+        public void TakeDamage(float damage)
+        {
+            TakeDamage((int)damage);
         }
 
         public void Heal(int amount)
@@ -49,6 +58,7 @@ namespace Core.Health
 
         private void OnDestroy()
         {
+            OnDeath = null;
             OnDamaged = null;
         }
     }

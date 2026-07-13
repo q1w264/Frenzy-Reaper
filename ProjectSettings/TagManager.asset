@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -11,7 +13,7 @@ TagManager:
   - Wall
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -43,6 +45,9 @@ TagManager:
     locked: 0
   - name: BackWall
     uniqueID: 3695497665
+    locked: 0
+  - name: Anemy
+    uniqueID: 3053201945
     locked: 0
   - name: Player
     uniqueID: 3687837983

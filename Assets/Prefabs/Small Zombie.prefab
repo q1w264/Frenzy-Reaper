@@ -20,9 +20,9 @@ GameObject:
   - component: {fileID: 5944334580898773354}
   - component: {fileID: 2000348961392117692}
   - component: {fileID: 5872044040744292520}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -607129313
+  m_SortingLayerID: -1241765351
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -362,6 +362,7 @@ MonoBehaviour:
   attackRange: 1
   decisionInterval: 0.15
   attackInterval: 2
+  enableGizmos: 0
 --- !u!114 &2000348961392117692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Core.Enemy.AnimationHandler
   animationInterval: 0.2
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
 --- !u!114 &5872044040744292520
 MonoBehaviour:
   m_ObjectHideFlags: 0
