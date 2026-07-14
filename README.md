@@ -41,6 +41,60 @@ Each run is a harsh expedition: stay alive, build your loadout, and bring resour
 
 > Current repository status: **Phase 2 — Roguelite Loop** (active development).
 
+## Core Architecture & Modern Patterns
+
+This project targets **Unity 6** and enforces modern, zero-allocation, low-coupling patterns.
+Legacy Unity 5-era patterns are **rejected by convention** — code Reviews will block them.
+
+- **View / Logic Separation (UI Toolkit + C# MVP)**
+  UI is built with **UI Toolkit (UXML/USS)**. Data models (`Core` layer) expose plain
+  C# values + events only; a dedicated **Presenter/ViewModel** (`[CreateProperty]`) maps
+  data to view state via Runtime Data Binding. `Core` types MUST NOT reference
+  `UnityEngine.UIElements`. Replaces uGUI + manual state sync.
+- **Zero-Coupling Communication (ScriptableObject Event Channels)**
+  Cross-module signals (damage, death, spawn, pickup) flow through **SO Event Channels**.
+  No web of Inspector-wired object references between prefabs.
+- **Unified Service Management (Static Service Locator)**
+  Runtime services (player transform, bullet pool, wave director) are resolved through a
+  minimal static **Service Locator** (`ServiceLocator.Get<T>()`) for dependency inversion.
+  **Singletons (`GameManager.Instance`) are forbidden.**
+- **Code-Driven Animation (`Animator.Play(hash)`)**
+  Animation states are switched purely in code via `Animator.Play(stateHash)` /
+  `CrossFade(hash)` using cached `StringToHash` values. **Blend Trees are kept ONLY for
+  multi-directional (8-way) movement blending.** No Animator transition wiring, no
+  parameter-driven condition graphs, no `SetTrigger`/`SetBool` for one-shot clips.
+
+## Performance Red Lines (DO NOT CROSS)
+
+With massive on-screen swarms, the following are hard rules:
+
+- ❌ **No per-frame / per-hit heap allocations.** No `new WaitForSeconds`, no LINQ, no
+  boxing in hot paths → cache waits or use `Time.time` timers; reuse `MaterialPropertyBlock`.
+- ❌ **No `GetComponent` in `Update` / hot loops.** → cache all component refs in `Awake`.
+- ❌ **No `Instantiate`/`Destroy` for high-count entities (bullets, enemies, VFX).** →
+  use the official **`UnityEngine.Pool`** (`ObjectPool<T>`); never hand-roll pool classes.
+- ❌ **No allocating physics queries.** → use `Physics2D.OverlapCircle(ContactFilter2D, Collider2D[])`
+  with a preallocated buffer; compare `sqrMagnitude`, never `Vector2.Distance`.
+- ❌ **No string-based Animator lookups at runtime.** → precompute `Animator.StringToHash`.
+- ❌ **No global find calls** (`FindObjectOfType`, `GameObject.Find`) at runtime. →
+  resolve via Service Locator.
+
+## Naming Conventions & Technical First
+
+**Technical naming takes absolute priority over art / worldbuilding terminology.**
+When readability conflicts with lore, code readability and stack-migration intuition win.
+
+- **Code identifiers use generic technical terms**: `Exp`, `Enemy`, `LevelUp`, `Health`,
+  `Bullet`, `Pickup` — chosen so any engineer (or AI agent) can grep and reason without
+  reading the design doc. Never encode lore into type/field/method names.
+- **Worldbuilding / art terms** (e.g. "Mutant", "Scrap", "Cybernetic") live **only** in
+  Inspector labels (`[Header]`/`[Tooltip]`), UXML display text, and code comments as a
+  presentation-layer gloss — never in the API surface.
+- **One class = one name.** No duplicate type names across namespaces
+  (e.g. `PlayerAnimator` vs `EnemyAnimator`, not two `AnimationHandler`).
+- **Namespaces mirror the layer**: `Core.*` = engine/logic (no view deps),
+  `UI.*` = view/presenter, `Data.*` = ScriptableObject definitions.
+
 ## Changelog
 
 ### Phase 1 — Core Combat Prototype ✅
