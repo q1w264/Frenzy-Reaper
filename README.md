@@ -3,7 +3,7 @@
 ![Unity](https://img.shields.io/badge/Unity-2D%20LTS-black?logo=unity)
 ![Language](https://img.shields.io/badge/Language-C%23-239120?logo=csharp)
 ![Genre](https://img.shields.io/badge/Genre-Roguelite%20%2F%20Survivors--like-orange)
-![Status](https://img.shields.io/badge/Status-Phase%200%20Foundation-blue)
+![Status](https://img.shields.io/badge/Status-Phase%202%20Roguelite%20Loop-orange)
 ![License](https://img.shields.io/badge/Code%20License-GPL--3.0-success)
 
 [中文文档 (Chinese)](./README.zh-CN.md)
@@ -25,8 +25,8 @@ Each run is a harsh expedition: stay alive, build your loadout, and bring resour
 ## Roadmap
 
 - [x] Phase 0: Project initialization and whitebox environment setup
-- [ ] Phase 1: Core combat prototype (movement, auto-fire, enemy chase, basic HP)
-- [ ] Phase 2: Roguelite loop (scrap pickup, upgrade UI, dynamic enemy waves)
+- [x] Phase 1: Core combat prototype (movement, auto-fire, enemy chase, basic HP)
+- [ ] **Phase 2: Roguelite loop (scrap pickup, upgrade UI, dynamic enemy waves)** ← *in progress*
 - [ ] Phase 3: Architecture refactor (Object Pool, ScriptableObject data-driven config)
 - [ ] Phase 4: Content and feedback pass (more wasteland weapons, hit flash, screen shake)
 - [ ] Phase 5: Meta progression (shelter building, local JSON save/load)
@@ -39,7 +39,17 @@ Each run is a harsh expedition: stay alive, build your loadout, and bring resour
 - **Data-driven design**: **ScriptableObject** for config/logic separation
 - **Pixel rendering**: **2D Pixel Perfect** to preserve crisp visuals
 
-> Current repository status: Phase 0 (foundation). Some systems are still placeholders.
+> Current repository status: **Phase 2 — Roguelite Loop** (active development).
+
+## Changelog
+
+### Phase 1 — Core Combat Prototype ✅
+- Player 8-directional movement via Unity Input System.
+- Auto-targeting: `Attack.cs` uses `Physics2D.OverlapCircle` to lock onto the nearest live enemy each frame.
+- Bullet object pool (`BulletPool.cs` + `Bullet.cs`) recycles projectiles with trigger-based hit detection.
+- Enemy chase and melee AI powered by **A\* Pathfinding Project** (AIPath + RVO) with a configurable decision interval to reduce CPU cost.
+- Component-level HP system (`Health.cs`) with `OnDamaged` / `OnDeath` C# events; UI data-binding via Unity UI Toolkit runtime data source.
+- Death screen with scene-reload via `DeathController.cs`.
 
 ## How to Play / Build
 

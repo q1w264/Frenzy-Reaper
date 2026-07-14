@@ -3,7 +3,7 @@
 ![Unity](https://img.shields.io/badge/Unity-2D%20LTS-black?logo=unity)
 ![Language](https://img.shields.io/badge/Language-C%23-239120?logo=csharp)
 ![Genre](https://img.shields.io/badge/Genre-Roguelite%20%2F%20Survivors--like-orange)
-![Status](https://img.shields.io/badge/Status-Phase%200%20Foundation-blue)
+![Status](https://img.shields.io/badge/Status-Phase%202%20Roguelite%20Loop-orange)
 ![License](https://img.shields.io/badge/Code%20License-GPL--3.0-success)
 
 [English](./README.md)
@@ -25,8 +25,8 @@
 ## 开发路线图（Roadmap）
 
 - [x] 第 0 阶段：工程初始化与白盒环境搭建
-- [ ] 第 1 阶段：核心战斗原型（移动、自动开火、敌人追踪、基础血量）
-- [ ] 第 2 阶段：肉鸽循环（废料拾取、升级 UI、动态刷怪波次）
+- [x] 第 1 阶段：核心战斗原型（移动、自动开火、敌人追踪、基础血量）
+- [ ] **第 2 阶段：肉鸽循环（废料拾取、升级 UI、动态刷怪波次）** ← *进行中*
 - [ ] 第 3 阶段：架构重构（对象池 Object Pool、数据驱动 SO 配置）
 - [ ] 第 4 阶段：量产与视觉反馈（丰富的废土武器、受击闪白、屏幕震动）
 - [ ] 第 5 阶段：局外养成（避难所建设、本地 JSON 存档读取）
@@ -39,7 +39,17 @@
 - **数据驱动**：使用 **ScriptableObject** 分离数据与逻辑
 - **像素呈现**：接入 **2D Pixel Perfect** 保持像素画面清晰稳定
 
-> 当前仓库处于“第 0 阶段：搭建地基”，部分系统仍为开发占位实现。
+> 当前仓库处于「**第 2 阶段：肉鸽循环**」，正在积极开发中。
+
+## 更新日志 (Changelog)
+
+### 第 1 阶段 — 核心战斗原型 ✅
+- 玩家 8 方向移动，基于 Unity Input System 事件驱动。
+- 自动瞄准：`Attack.cs` 每帧通过 `Physics2D.OverlapCircle` 锁定最近存活敌人。
+- 子弹对象池（`BulletPool.cs` + `Bullet.cs`），触发器碰撞判定命中。
+- 敌人寻路追踪 AI，基于 **A\* Pathfinding Project**（AIPath + RVO），含 `decisionInterval` 节流优化。
+- 组件化血量系统（`Health.cs`），暴露 `OnDamaged` / `OnDeath` C# 事件；UI 通过 Unity UI Toolkit Runtime Data Binding 实时刷新。
+- 死亡界面与场景重载，由 `DeathController.cs` 管理。
 
 ## 如何运行测试（How to Play / Build）
 
