@@ -1,18 +1,20 @@
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace Core.Animation.State.Default
 {
-    public class MoveState : IAnimationState
+    public class MoveState : IAnimationState<DefaultInput>
     {
         private readonly int _hash = Animator.StringToHash("Move");
-        
-        public IAnimationState HandleInput(AnimationInput input)
+
+        [return: MaybeNull]
+        public IAnimationState<DefaultInput> HandleInput(DefaultInput input)
         {
             return input switch
             {
-                {isAttack: true} => new AttackState(),
-                {speed: 0f} => new IdleState(),
-                {isDead: true} => new DeadState(),
+                { isAttack: true } => new AttackState(),
+                { speed: 0f } => new IdleState(),
+                { isDead: true } => new DeadState(),
                 _ => null
             };
         }

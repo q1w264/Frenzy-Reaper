@@ -1,12 +1,14 @@
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace Core.Animation.State.Default
 {
-    public class DeadState : IAnimationState
+    public class DeadState : IAnimationState<DefaultInput>
     {
         private readonly int _hash = Animator.StringToHash("Dead");
-        
-        public IAnimationState HandleInput(AnimationInput input)
+
+        [return: MaybeNull]
+        public IAnimationState<DefaultInput> HandleInput(DefaultInput input)
         {
             return null; // Dead state does not transition to any other state
         }

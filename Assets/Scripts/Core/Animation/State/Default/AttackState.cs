@@ -1,12 +1,14 @@
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace Core.Animation.State.Default
 {
-    public class AttackState : IAnimationState
+    public class AttackState : IAnimationState<DefaultInput>
     {
         private readonly int _hash = Animator.StringToHash("Attack");
-        
-        public IAnimationState HandleInput(AnimationInput input)
+
+        [return: MaybeNull]
+        public IAnimationState<DefaultInput> HandleInput(DefaultInput input)
         {
             return input switch
             {

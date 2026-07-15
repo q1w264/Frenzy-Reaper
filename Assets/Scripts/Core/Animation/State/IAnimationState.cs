@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Core.Animation.State
 {
-    public interface IAnimationState
+    public interface IAnimationState<in TInput> where TInput : struct, IAnimationInput
     {
         [return: MaybeNull]
-        public IAnimationState HandleInput(AnimationInput  input);
+        public IAnimationState<TInput> HandleInput(TInput input);
 
         public void Animate(Animator animator);
     }
