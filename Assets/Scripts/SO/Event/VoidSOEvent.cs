@@ -8,7 +8,7 @@ namespace SO.Event
     {
         private Action _event;
 
-        event Action OnEvent
+        public event Action OnEvent
         {
             add => _event += value;
             remove => _event -= value;

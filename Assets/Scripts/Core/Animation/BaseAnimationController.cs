@@ -5,11 +5,11 @@ namespace Core.Animation
     [RequireComponent(typeof(Animator))]
     public abstract class BaseAnimationController : MonoBehaviour
     {
-        private Animator _animator;
+        protected Animator animator;
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            _animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
         }
     }
 }
