@@ -13,7 +13,7 @@ namespace SO.Event
             remove => _event -= value;
         }
 
-        private void InvokeEvent(T value)
+        public void InvokeEvent(T value)
         {
             _event?.Invoke(value);
         }

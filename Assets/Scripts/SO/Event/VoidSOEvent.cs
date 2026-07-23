@@ -14,7 +14,7 @@ namespace SO.Event
             remove => _event -= value;
         }
 
-        private void InvokeEvent()
+        public void InvokeEvent()
         {
             _event?.Invoke();
         }
