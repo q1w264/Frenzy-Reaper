@@ -10,9 +10,10 @@ namespace Core.Animation
         private static readonly int MoveX = Animator.StringToHash("MoveX");
         private static readonly int MoveY = Animator.StringToHash("MoveY");
         private CancellationTokenSource _cancellationTokenSource;
-        
+
         [Header("Received SO Event")] [SerializeField]
         private VoidSOEvent playerDeadVoidSOEvent;
+
         [SerializeField] private VoidSOEvent playerDamagedVoidSOEvent;
         [SerializeField] private VoidSOEvent playerAttackVoidSOEvent;
         [SerializeField] private Vector2SOEvent playerFacedDirectionVector2SOEvent;
@@ -33,12 +34,13 @@ namespace Core.Animation
         private void OnEnable()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            
-            playerDeadVoidSOEvent.OnEvent += OnPlayerDeadEvent;
-            playerDamagedVoidSOEvent.OnEvent += OnPlayerDamagedEvent;
-            playerAttackVoidSOEvent.OnEvent += OnPlayerAttackEvent;
-            playerFacedDirectionVector2SOEvent.OnEvent += OnChangeDirectionEvent;
-            playerSpeedFloatSOEvent.OnEvent += OnPlayerSpeedChangedEvent;
+
+            if (playerDeadVoidSOEvent != null) playerDeadVoidSOEvent.OnEvent += OnPlayerDeadEvent;
+            if (playerDamagedVoidSOEvent != null) playerDamagedVoidSOEvent.OnEvent += OnPlayerDamagedEvent;
+            if (playerAttackVoidSOEvent != null) playerAttackVoidSOEvent.OnEvent += OnPlayerAttackEvent;
+            if (playerFacedDirectionVector2SOEvent != null)
+                playerFacedDirectionVector2SOEvent.OnEvent += OnChangeDirectionEvent;
+            if (playerSpeedFloatSOEvent != null) playerSpeedFloatSOEvent.OnEvent += OnPlayerSpeedChangedEvent;
         }
 
         private void OnDisable()
@@ -46,12 +48,13 @@ namespace Core.Animation
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource?.Dispose();
             _cancellationTokenSource = null;
-            
-            playerDeadVoidSOEvent.OnEvent -= OnPlayerDeadEvent;
-            playerDamagedVoidSOEvent.OnEvent -= OnPlayerDamagedEvent;
-            playerAttackVoidSOEvent.OnEvent -= OnPlayerAttackEvent;
-            playerFacedDirectionVector2SOEvent.OnEvent -= OnChangeDirectionEvent;
-            playerSpeedFloatSOEvent.OnEvent -= OnPlayerSpeedChangedEvent;
+
+            if (playerDeadVoidSOEvent != null) playerDeadVoidSOEvent.OnEvent -= OnPlayerDeadEvent;
+            if (playerDamagedVoidSOEvent != null) playerDamagedVoidSOEvent.OnEvent -= OnPlayerDamagedEvent;
+            if (playerAttackVoidSOEvent != null) playerAttackVoidSOEvent.OnEvent -= OnPlayerAttackEvent;
+            if (playerFacedDirectionVector2SOEvent != null)
+                playerFacedDirectionVector2SOEvent.OnEvent -= OnChangeDirectionEvent;
+            if (playerSpeedFloatSOEvent != null) playerSpeedFloatSOEvent.OnEvent -= OnPlayerSpeedChangedEvent;
         }
 
         private void OnPlayerDeadEvent()
