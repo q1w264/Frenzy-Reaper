@@ -1,3 +1,5 @@
+using System;
+using SO.Event.Bullet;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -5,9 +7,13 @@ namespace Core.Bullet
 {
     public class BulletPool : MonoBehaviour
     {
+        [Header("Bullet Prefab")]
         [SerializeField] private Bullet bulletPrefab;
         [SerializeField] private int initialPoolSize = 10;
         [SerializeField] private int maxPoolSize = 100;
+        
+        [Header("Bullet Pool")]
+        [SerializeField] private BulletSOEvent shootEvent;
         
         private Vector2 _firePosition;
         private Vector2 _fireDirection;
@@ -19,6 +25,17 @@ namespace Core.Bullet
             _bulletPool = new ObjectPool<Bullet>(CreateBullet, OnGetBullet, OnReleaseBullet, OnDestroyBullet, true,
                 initialPoolSize, maxPoolSize);
         }
+
+        private void OnEnable()
+        {
+            shootEvent.OnEvent += OnShootEvent;
+        }
+
+        private void OnDisable()
+        {
+            shootEvent.OnEvent -= OnShootEvent;
+        }
+
 
         private Bullet CreateBullet()
         {
@@ -44,6 +61,14 @@ namespace Core.Bullet
             Destroy(bullet.gameObject);
         }
 
+        private void OnShootEvent(BulletInitInfo info)
+        {
+            _firePosition = info.position;
+            _fireDirection = info.direction;
+            _bulletPool.Get();
+        }
+        
+        [Obsolete("This method has been replaced by the SO Event. Please use 'BulletSOEvent' instead.")]
         public void Shoot(Vector2 firePosition, Vector2 fireDirection)
         {
             _firePosition = firePosition;
